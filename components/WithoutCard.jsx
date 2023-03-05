@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
         borderColor: "black",
         borderRadius: 10,
         height: 300,
+        width: 300,
         backgroundColor: "white",
         display: "flex",
         flexDirection: "column",

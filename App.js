@@ -7,6 +7,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import store from './redux/store'
 import Result from './components/Result';
 import Home from './pages/Home';
+import Listen from './pages/Listen';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
     
      <NavigationContainer>
     <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Meaning" component={Home} />
+      <Tab.Screen name="Listen" component={Listen} />
     </Tab.Navigator>
   </NavigationContainer>  
    
