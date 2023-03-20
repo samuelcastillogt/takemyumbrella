@@ -20,7 +20,7 @@ export default function App() {
       backgroundColor: 'rgba(34,36,40,1)',
 
   }, }} >
-      <Tab.Screen name="Meaning" component={Home} screenOptions={{backgroundColor: "red" }} />
+      <Tab.Screen name="Meaning" component={Home} style={styles.container} />
       <Tab.Screen name="Listen" component={Listen} />
     </Tab.Navigator>
   </NavigationContainer>  

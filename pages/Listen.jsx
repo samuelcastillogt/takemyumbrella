@@ -1,25 +1,52 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-// import YouTube from 'react-native-youtube';
+import { StyleSheet, Text, View, Alert, Button, ScrollView } from 'react-native'
+import React, {useEffect, useState} from "react";
+
 const Listen = () => {
-  return (
-    <View>
-      <Text>Listen</Text>
-      {/* <YouTube
-  videoId="KVZ-P-ZI6W4" // The YouTube video ID
-  play // control playback of video with true/false
-  fullscreen // control whether the video should play in fullscreen or inline
-  loop // control whether the video should loop when ended
-  onReady={e => this.setState({ isReady: true })}
-  onChangeState={e => this.setState({ status: e.state })}
-  onChangeQuality={e => this.setState({ quality: e.quality })}
-  onError={e => this.setState({ error: e.error })}
-  style={{ alignSelf: 'stretch', height: 300 }}
-/> */}
+  const [history, setHistory] = useState()
+  const getHistory= async()=>{
+    const response = await fetch("https://shortstories-api.onrender.com/")
+    const data = await response.json()
+    setHistory(data)
+  }
+  useEffect(()=>{
+    getHistory()
+  },[])
+  if(!history){
+    return <Text>Cargando</Text>
+  }else{
+     return (
+      <ScrollView>
+        <View style={styles.card}>
+      <Text style={styles.title}>{history.title}</Text>
+      <Text>Author: {history.author}</Text>
+      <Text style={styles.textContainer}>{history.story}</Text>
+
     </View>
+      <Button 
+      onPress={getHistory}
+      title="Get a new history"
+      />    
+      </ScrollView>
+    
   )
+  }
+ 
 }
 
 export default Listen
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 25,
+    fontWeight: "bold"
+  },
+  textContainer: {
+    padding: 5
+  },
+  card:{
+    padding: 10,
+    backgroundColor: "white",
+    borderRadius: 10,
+    margin: 10
+  }
+})

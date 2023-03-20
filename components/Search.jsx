@@ -17,14 +17,21 @@ const Search = () => {
     <View style={styles.container}>
       <Text style={styles.title}>Hoy quiero practicar con ...</Text>
       <TextInput style={styles.input} onChangeText={setWord}/>
-      <Button 
+      <View style={{borderRadius: 5,
+        margin: 10,
+        padding: 20,
+        backgroundColor: "#3066BE"}}>
+        <Button 
       title="Let`s go..."
       onPress={getWord}
       style={{borderRadius: 5,
         margin: 10,
+        padding: 20,
         backgroundColor: "#3066BE"}}
       />
     </View>
+      </View>
+      
   )
 }
 
