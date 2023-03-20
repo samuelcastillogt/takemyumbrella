@@ -10,7 +10,7 @@ const Home = () => {
       <Search />
       
     </View>
-<DefinitionsContainer />
+<DefinitionsContainer style={styles.container}/>
     </ScrollView>
     
   )
@@ -20,6 +20,6 @@ export default Home
 
 const styles = StyleSheet.create({
     container:{
-        backgroundColor: "#963484"
+        backgroundColor: "#1f1e2c"
     }
 })

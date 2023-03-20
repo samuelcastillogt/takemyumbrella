@@ -15,13 +15,12 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>    
     <Provider store={store}>
-    
-  
-
-    
      <NavigationContainer>
-    <Tab.Navigator screenOptions={{ headerShown: false }}>
-      <Tab.Screen name="Meaning" component={Home} />
+    <Tab.Navigator screenOptions={{ headerShown: false, tabBarStyle: {
+      backgroundColor: 'rgba(34,36,40,1)',
+
+  }, }} >
+      <Tab.Screen name="Meaning" component={Home} screenOptions={{backgroundColor: "red" }} />
       <Tab.Screen name="Listen" component={Listen} />
     </Tab.Navigator>
   </NavigationContainer>  
@@ -34,7 +33,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#36393b',
+    backgroundColor: '#1f1e2c',
     color: "white"
   },
   textWhite:{
