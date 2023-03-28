@@ -1,20 +1,17 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import React from 'react'
 
-const WithoutCard = () => {
+export default function Noresult() {
   return (
     <View style={styles.container}>
-       <Image
+      <Image 
+        source={require("../assets/noresult.png")}
         style={styles.tinyLogo}
-        source={require("../assets/without.png")}
       />
-      <Text style={styles.title}>Busca una palabra para iniciar a practicar</Text>
+      <Text style={styles.title}>There are not examples for this word</Text>
     </View>
   )
 }
-
-export default WithoutCard
-
 const styles = StyleSheet.create({
     container:{
         height: 450,

@@ -3,6 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import WithoutCard from "./WithoutCard";
 import CardDefinition from "./CardDefinition";
+import Noresult from "./Noresult";
 const DefinitionsContainer = () => {
   const meanings = useSelector((state) => state.counter.result[0]);
   if (!meanings) {
@@ -31,7 +32,7 @@ const DefinitionsContainer = () => {
           ))}
         </ScrollView>
         <Text style={styles.title}>
-          Here are some examples, try to practice...
+          {numero.length > 0 && numero[0] != undefined? "Here are some examples, try to practice..." : <Noresult />}
         </Text>
         <ScrollView style={styles.container} horizontal={true}>
           {numero.map((item) => ( item != undefined && <CardDefinition content={item} key={item} />
@@ -53,5 +54,6 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: "bold",
     margin: 10,
+    color: "white",
   },
 });

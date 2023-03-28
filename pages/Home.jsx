@@ -5,7 +5,7 @@ import DefinitionsContainer from '../components/DefinitionsContainer'
 const Home = () => {
    
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: "#1f1e2c"}}>
     <View style={styles.container}>
       <Search />
       

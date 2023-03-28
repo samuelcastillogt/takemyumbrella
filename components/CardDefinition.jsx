@@ -25,6 +25,5 @@ const styles = StyleSheet.create({
         alignItems:"center",
         margin: 10,
         padding:10,
-        fontFamily:"bebas"
     }
 })

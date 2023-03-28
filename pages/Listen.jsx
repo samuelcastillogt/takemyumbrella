@@ -15,7 +15,7 @@ const Listen = () => {
     return <Text>Cargando</Text>
   }else{
      return (
-      <ScrollView>
+      <ScrollView style={{backgroundColor: "#1f1e2c"}}>
         <View style={styles.card}>
       <Text style={styles.title}>{history.title}</Text>
       <Text>Author: {history.author}</Text>
