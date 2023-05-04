@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#1f1e2c"
-      }
+      },
+      "package": "com.samuelcastillo.front"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "78f1420c-6629-4987-ac62-5644c54d4862"
+      }
     }
   }
 }

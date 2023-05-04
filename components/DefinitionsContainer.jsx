@@ -1,26 +1,32 @@
 import { StyleSheet, Text, View, ScrollView } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import WithoutCard from "./WithoutCard";
 import CardDefinition from "./CardDefinition";
 import Noresult from "./Noresult";
 const DefinitionsContainer = () => {
   const meanings = useSelector((state) => state.counter.result[0]);
-  if (!meanings) {
+  const [examples, setExamples] = useState([])
+  useEffect(()=>{
+      if(meanings != undefined){
+         meanings.meanings[0].definitions.map(item => {
+         if(item.example != undefined){
+           setExamples([...examples, item.example])
+         }
+       })
+      }
+       
+       }, [meanings])
+       console.log(meanings)
+  if (meanings == undefined) {
     return (
       <View style={styles.container}>
         <WithoutCard />
       </View>
     );
   } else {
-    const numero = meanings.meanings[0].definitions.map(item => {
-        if(item.example !== undefined){
-             return item.example
-        }else{
-            console.log(item)
-        }
-    })
-    console.log(numero)
+
+   
     return (
       <View>
         <Text style={styles.title}>
@@ -32,10 +38,10 @@ const DefinitionsContainer = () => {
           ))}
         </ScrollView>
         <Text style={styles.title}>
-          {numero.length > 0 && numero[0] != undefined? "Here are some examples, try to practice..." : <Noresult />}
+          {examples.length > 0 && examples[0] != undefined ? "Here are some examples, try to practice..." : <Noresult />}
         </Text>
         <ScrollView style={styles.container} horizontal={true}>
-          {numero.map((item) => ( item != undefined && <CardDefinition content={item} key={item} />
+          {examples.map((item) => ( item != undefined && <CardDefinition content={item} key={item} />
             
           ))}
         </ScrollView>

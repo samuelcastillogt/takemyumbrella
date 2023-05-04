@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Alert, Button, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, Alert, Button, ScrollView, SafeAreaView } from 'react-native'
 import React, {useEffect, useState} from "react";
 
 const Listen = () => {
@@ -15,8 +15,10 @@ const Listen = () => {
     return <Text>Cargando</Text>
   }else{
      return (
-      <ScrollView style={{backgroundColor: "#1f1e2c"}}>
-        <View style={styles.card}>
+      
+      <ScrollView style={{backgroundColor: "#1f1e2c", paddingTop: 30}}>
+        <View>
+            <View style={styles.card}>
       <Text style={styles.title}>{history.title}</Text>
       <Text>Author: {history.author}</Text>
       <Text style={styles.textContainer}>{history.story}</Text>
@@ -25,7 +27,9 @@ const Listen = () => {
       <Button 
       onPress={getHistory}
       title="Get a new history"
-      />    
+      />  
+        </View>
+        
       </ScrollView>
     
   )
@@ -47,6 +51,9 @@ const styles = StyleSheet.create({
     padding: 10,
     backgroundColor: "white",
     borderRadius: 10,
-    margin: 10
+    margin: 10,
+  },
+  container:{
+     display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", marginTop: 100
   }
 })
