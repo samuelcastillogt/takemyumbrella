@@ -1,17 +1,24 @@
 import { StyleSheet, Text, View, Button, TouchableHighlight, Alert } from 'react-native'
 import React from 'react'
+import { useState } from 'react'
 
 const Login = () => {
+    const [alerta2, setAlerta] = useState(false)
+    const alerta = ()=> Alert.alert("jajajaja")
   return (
     <View style={styles.loginContainer}>
+        {
+            alerta2 == true && <Text>Hola</Text>
+        }
+        <Text>{alerta2}</Text>
         <View style={styles.textContainer}>
             <Text style={styles.textStyles}>Login</Text>  
             <Button
             style={styles.botton} 
             title='Iniciar Sesion'
-            onPress={()=> alert("kdljkaskjdlsak")}
+            onPress={alerta}
             />
-            <TouchableHighlight style={styles.botton} onPress={()=> Alert.alert("kdljkaskjdlsak")}>
+            <TouchableHighlight style={styles.botton} onPress={alerta}>
                 <Text>Iniciar Sesion</Text>
             </TouchableHighlight>
         </View>
