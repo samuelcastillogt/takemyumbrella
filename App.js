@@ -13,15 +13,22 @@ import Login from './pages/Login';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-  if(6 > 1){
+  const userActive = store.getState().user.value
+  if(userActive == false){
     return (
+      <SafeAreaView style={styles.container}>    
+    <Provider store={store}>
+      {
+        console.log(userActive) 
+      }
       <Login />
+    </Provider>
+</SafeAreaView> 
     )
-  }else{
+  }else if(userActive == true){
     return (
     <SafeAreaView style={styles.container}>    
     <Provider store={store}>
-    
      <NavigationContainer>
     <Tab.Navigator screenOptions={{ headerShown: false, tabBarStyle: {
       backgroundColor: 'rgba(34,36,40,1)',

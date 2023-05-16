@@ -1,16 +1,15 @@
 import { StyleSheet, Text, View, Button, TouchableHighlight, Alert } from 'react-native'
 import React from 'react'
 import { useState } from 'react'
-
+import { SET_SESION } from '../redux/user.slice'
+import { useDispatch } from 'react-redux'
 const Login = () => {
-    const [alerta2, setAlerta] = useState(false)
-    const alerta = ()=> Alert.alert("jajajaja")
+  const dispatch = useDispatch()
+    const alerta = ()=> {
+    dispatch(SET_SESION(true))
+  }  
   return (
     <View style={styles.loginContainer}>
-        {
-            alerta2 == true && <Text>Hola</Text>
-        }
-        <Text>{alerta2}</Text>
         <View style={styles.textContainer}>
             <Text style={styles.textStyles}>Login</Text>  
             <Button
@@ -39,7 +38,7 @@ const styles = StyleSheet.create({
     textContainer:{
         color: "white",
         backgroundColor: "#34314c",
-        height: "50%",
+        height: "40%",
         width: "100%",
         borderTopRightRadius: 100,
         borderTopLeftRadius: 100,
