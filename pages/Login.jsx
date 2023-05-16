@@ -2,10 +2,13 @@ import { StyleSheet, Text, View, Button, TouchableHighlight, Alert } from 'react
 import React from 'react'
 import { useState } from 'react'
 import { SET_SESION } from '../redux/user.slice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 const Login = () => {
+    const user = useSelector(state => state.user.value)
   const dispatch = useDispatch()
     const alerta = ()=> {
+        console.log(user)
+        console.log("click")
     dispatch(SET_SESION(true))
   }  
   return (
@@ -40,8 +43,8 @@ const styles = StyleSheet.create({
         backgroundColor: "#34314c",
         height: "40%",
         width: "100%",
-        borderTopRightRadius: 100,
-        borderTopLeftRadius: 100,
+        borderTopRightRadius: 150,
+        borderTopLeftRadius: 150,
         display: "flex",
         justifyContent: "center",
         alignItems: "center"
@@ -54,6 +57,7 @@ const styles = StyleSheet.create({
     botton:{
         backgroundColor: "#ff7473",
         padding: 10,
-        borderRadius: 10
+        borderRadius: 10,
+        margin: 10
     }
 })
