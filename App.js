@@ -9,11 +9,16 @@ import store from './redux/store'
 import Result from './components/Result';
 import Home from './pages/Home';
 import Listen from './pages/Listen';
+import Login from './pages/Login';
 const Tab = createBottomTabNavigator();
 
 export default function App() {
-
-  return (
+  if(6 > 1){
+    return (
+      <Login />
+    )
+  }else{
+    return (
     <SafeAreaView style={styles.container}>    
     <Provider store={store}>
     
@@ -31,7 +36,10 @@ export default function App() {
    
     </Provider>
 </SafeAreaView> 
-  );
+  
+
+  
+  );}
 }
 
 const styles = StyleSheet.create({
