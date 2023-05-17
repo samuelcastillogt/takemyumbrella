@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "front",
-    "slug": "front",
+    "name": "umbrella",
+    "slug": "umbrella",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -20,9 +20,10 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#1f1e2c"
+        "backgroundColor": "#1f1e2c",
+        "googleServicesFile": "./google-services.json"
       },
-      "package": "com.samuelcastillo.front"
+      "package": "com.samuelcastillo.umbrella"
     },
     "web": {
       "favicon": "./assets/favicon.png"
@@ -31,6 +32,7 @@
       "eas": {
         "projectId": "78f1420c-6629-4987-ac62-5644c54d4862"
       }
-    }
+    },
+    "plugins": ["@react-native-google-signin/google-signin"]
   }
 }
