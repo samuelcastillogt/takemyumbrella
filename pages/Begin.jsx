@@ -5,6 +5,7 @@ import Login from './Login';
 import HomeScreen from "./HomeScreen"
 import Categorie from './Categorie';
 import Excersice from './Excersice';
+import TeraCards from './TeraCards';
 const Stack = createNativeStackNavigator();
 const Begin = () => {
 
@@ -18,6 +19,7 @@ const Begin = () => {
       <Stack.Screen name="Profile" component={Login} options={{headerShown:false}}/>
       <Stack.Screen name="Categorie" component={Categorie} options={{headerShown:false}}/>
       <Stack.Screen name="Excersice" component={Excersice} options={{headerShown:false}}/>
+      <Stack.Screen name="TeraCards" component={TeraCards} options={{headerShown:false}}/>
     </Stack.Navigator>
   )
  
