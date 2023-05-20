@@ -1,14 +1,16 @@
-import { StyleSheet, Text, View, ScrollView, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, View, ScrollView, TouchableHighlight, ActivityIndicator } from 'react-native'
 import React from 'react'
 import {apiService} from '../service/api'
 import { useEffect } from 'react'
 import { useState } from 'react'
+import Error from '../components/Error'
 const Categorie = (props) => {
-  console.log(props)
   const [cards, setCards] = useState()
+  const [loading, setLoading] = useState(true)
   const getCard = async()=>{
-    const data = await apiService.getCards()
+    const data = await apiService.getCards(props.route.params.name)
     setCards(data)
+    setLoading(false)
   }
   useEffect(()=>{
     getCard()
@@ -18,16 +20,25 @@ const Categorie = (props) => {
       <Text style={styles.title}>Categoria: {props.route.params.name}</Text> 
       <ScrollView >
         {
-          cards && cards.length > 0 &&  cards.map((item, index)=>{
+          loading == true && <ActivityIndicator size="large" color="#00ff00" />
+        }
+        {
+          loading == false && cards && cards.length > 0 &&  cards.map((item, index)=>{
            return(
-            <TouchableHighlight  onPress={()=>{ props.navigation.navigate('TeraCards', {id: item.data.id})}} style={props.index %2 == 0 ? styles.card : styles.card2}>
+            <TouchableHighlight  onPress={()=>{ props.navigation.navigate('TeraCards', {id: item.id})}} 
+                                  style={props.index %2 == 0 ? styles.card : styles.card2}
+                                  key={item.id}
+                                  >
           <View >
                   <View style={props.index %2 == 0 ? styles.adorno : styles.adorno2}></View>
-                <Text style={styles.text}>{item.data.title}</Text>
+                <Text style={styles.text}>{item.data}</Text>
           </View>
               </TouchableHighlight>
            ) 
-          })   
+          }) 
+        }
+        {
+          loading == false && cards && cards.length == 0 && <Error />
         }
     </ScrollView> 
     </View>
