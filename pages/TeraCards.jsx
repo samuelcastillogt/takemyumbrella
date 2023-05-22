@@ -40,6 +40,7 @@ const TeraCards = (props) => {
       >
         <Text style={styles.text}>Anterior</Text>
       </TouchableHighlight>
+      <Text style={styles.title}>{index + 1} / {card.data.length}</Text>
       <TouchableHighlight 
       width= {50}
       style={index == card.data.length - 1 ? styles.btnDisable : styles.btn}
@@ -98,8 +99,9 @@ btnDisable:{
 },
 botonera:{
   display: "flex",
-  flexDirection:"row"
-
+  flexDirection:"row",
+  justifyContent: "center",
+  alignItems: "center"
 },
 text:{
   textAlign: "center"
