@@ -19,24 +19,43 @@ const Home = () => {
     {
       userActive == true && <NavigationContainer>
       <Tab.Navigator
-        screenOptions={{
-          headerShown: false,
-          tabBarStyle: {
+       screenOptions={({ route }) => ({
+        headerShown: false,
+        tabBarIcon: ({ focused, color, size }) => {
+          let iconName;
+
+          if (route.name === 'Inicio') {
+            iconName = focused
+              ? 'home'
+              : 'home-outline';
+          } else if (route.name === 'Settings') {
+            iconName = focused ? 'ios-list' : 'ios-list-outline';
+          }
+          return <Ionicons name={iconName} size={size} color={color} />;
+        },
+                 tabBarStyle: {
             backgroundColor: "rgba(34,36,40,1)",
+            borderTopColor: "rgba(34,36,40,1)"
           },
-        }}
+        tabBarActiveTintColor: 'tomato',
+        tabBarInactiveTintColor: 'gray',
+      })}
       >
         <Tab.Screen
           name="Inicio"
           component={Begin}
           style={styles.container}
-          tabBarIcon={
-            <Ionicons
-              name="md-checkmark-circle"
-              size={32}
-              color="green"
-            />
-          }
+          screenOptions={({ route }) => ({
+            tabBarActiveTintColor: 'tomato',
+            tabBarInactiveTintColor: 'gray',
+          })}
+          // tabBarIcon={
+          //   <Ionicons
+          //     name="md-checkmark-circle"
+          //     size={32}
+          //     color="green"
+          //   />
+          // }
         />
         <Tab.Screen name="Settings" component={Setings} />
       </Tab.Navigator>

@@ -1,6 +1,6 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, TouchableHighlight } from 'react-native'
 import React from 'react'
-
+import {apiService} from '../service/api'
 const SliderCard = () => {
   return (
     <View style={styles.card}>

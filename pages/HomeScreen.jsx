@@ -18,8 +18,8 @@ const HomeScreen = (props) => {
   // },[])
 
      return (
-      <ScrollView style={{backgroundColor: "#1f1e2c", paddingTop: 30}}>
-        <Slider data={dataScroll}/>
+      <ScrollView style={{backgroundColor: "#1f1e2c", paddingTop: 30}} >
+        <Slider data={dataScroll}  nav={props.navigation}/>
         <CarruselOptions nav={props.navigation}/>
         <GigantCard  nav={props.navigation}/>
       </ScrollView>

@@ -8,8 +8,17 @@ class api {
         return data
     }
     getCard = async(id)=>{
-        console.log(this.url_base + "api/cards/details/" + id)
         const response = await fetch(this.url_base + "api/cards/details/" + id)       
+        const data = await response.json() 
+        return data
+    }
+    getPosts = async(id)=>{
+        const response = await fetch(this.url_base + "api/posts/all")       
+        const data = await response.json() 
+        return data
+    }
+    getPost = async(id)=>{
+        const response = await fetch(this.url_base + "api/posts/datails/" + id)       
         const data = await response.json() 
         return data
     }

@@ -8,6 +8,7 @@ const TeraCards = (props) => {
   const [index, setIndex] = useState(0)
   const getDataCard = async()=>{
     const data = await apiService.getCard(props.route.params.id)
+
     setCard(data)
     setloading(false)
   }
@@ -48,6 +49,18 @@ const TeraCards = (props) => {
       onPress={next}
       >
         <Text style={styles.text}>Siguiente</Text>
+      </TouchableHighlight>
+      </View>
+}
+{  loading == false && index == card.data.length - 1 &&
+        <View style={styles.botonera}>
+        <TouchableHighlight 
+      width= {50}
+      style={index == 0 ? styles.btnDisable : styles.btn}
+      disabled={index == 0 ? true : false}
+      onPress={props.navigation.goBack}
+      >
+        <Text style={styles.text}>Regresar al menu de tarjetas</Text>
       </TouchableHighlight>
       </View>
 }
