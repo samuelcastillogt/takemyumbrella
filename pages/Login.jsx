@@ -3,63 +3,33 @@ import { StyleSheet, Text, View, Button, TouchableHighlight, Alert } from 'react
 import React from 'react'
 import { SET_SESION } from '../redux/user.slice'
 import { useDispatch, useSelector } from 'react-redux'
-
-// GoogleSignin.configure({
-//     scopes: ['https://www.googleapis.com/auth/drive.readonly'], // what API you want to access on behalf of the user, default is email and profile
-//     webClientId: '<FROM DEVELOPER CONSOLE>', // client ID of type WEB for your server (needed to verify user ID and offline access)
-//     offlineAccess: true, // if you want to access Google API on behalf of the user FROM YOUR SERVER
-//     hostedDomain: '', // specifies a hosted domain restriction
-//     forceCodeForRefreshToken: true, // [Android] related to `serverAuthCode`, read the docs link below *.
-//     accountName: '', // [Android] specifies an account name on the device that should be used
-//     iosClientId: '<FROM DEVELOPER CONSOLE>', // [iOS] if you want to specify the client ID of type iOS (otherwise, it is taken from GoogleService-Info.plist)
-//     googleServicePlistPath: '', // [iOS] if you renamed your GoogleService-Info file, new name here, e.g. GoogleService-Info-Staging
-//     openIdRealm: '', // [iOS] The OpenID2 realm of the home web server. This allows Google to include the user's OpenID Identifier in the OpenID Connect ID token.
-//     profileImageSize: 120, // [iOS] The desired height (and width) of the profile image. Defaults to 120px
-//   })
+import LoginForm from '../components/LoginForm'
+import SingUp from '../components/SingUp'
+import { useState } from 'react'
 
 const Login = () => {
-    const user = useSelector(state => state.user.value)
-  const dispatch = useDispatch()
-    const alerta = async()=> {
-        // try {
-        //     await GoogleSignin.hasPlayServices();
-        //     const userInfo = await GoogleSignin.signIn();
-        //     this.setState({ userInfo });
-        //   } catch (error) {
-        //     if (error.code === statusCodes.SIGN_IN_CANCELLED) {
-        //       // user cancelled the login flow
-        //     } else if (error.code === statusCodes.IN_PROGRESS) {
-        //       // operation (e.g. sign in) is in progress already
-        //     } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
-        //       // play services not available or outdated
-        //     } else {
-        //       // some other error happened
-        //     }
-        //   }
-    dispatch(SET_SESION(true))
-  }  
+    const [login, setLogin] = useState(false)
+    const [singUp, setSingUp] = useState(false)
   return (
     <View style={styles.loginContainer}>
         <View style={styles.textContainer}>
-            {/* <GoogleSigninButton
-  style={{ width: 192, height: 48 }}
-  size={GoogleSigninButton.Size.Wide}
-  color={GoogleSigninButton.Color.Dark}
-  onPress={alerta}
-  disabled={false}
-/> */}
-            <Text style={styles.textStyles}>Login</Text>  
+            <Text style={styles.textStyles}>Iniciar Sesion</Text>  
             <Button
             style={styles.botton} 
             title='Iniciar Sesion'
-            onPress={alerta}
+            onPress={()=> setLogin(true)}
             />
-            <TouchableHighlight style={styles.botton} onPress={alerta}>
-                <Text>Iniciar Sesion</Text>
+            <TouchableHighlight style={styles.botton} onPress={()=> setSingUp(true)} >
+                <Text style={styles.buttonText}>Crear una Cuenta</Text>
             </TouchableHighlight>
             
         </View>
-
+    {
+        login == true && <LoginForm />
+    }
+    {
+        singUp == true && <SingUp setLogin={setLogin} setSingUp={setSingUp}/>
+    }
     </View>
   )
 }
@@ -87,12 +57,16 @@ const styles = StyleSheet.create({
     textStyles :{
         color: "white",
         fontSize: 30,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        margin: 10
     },
     botton:{
         backgroundColor: "#ff7473",
         padding: 10,
         borderRadius: 10,
         margin: 10
+    },
+    buttonText:{
+        color: "white"
     }
 })

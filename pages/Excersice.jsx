@@ -1,7 +1,22 @@
 import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+const Excersice = () => {
+  return (
+    <View>
+      <Text>Excersice</Text>
+
+    </View>
+  )
+}
+
+export default Excersice
+
+const styles = StyleSheet.create({})
+
+
 // import React, { useState, useCallback, useRef } from "react";
 // import { Button, View, Alert } from "react-native";
-// import YoutubePlayer from "react-native-youtube-iframe"
+// import YoutubeIframe from "react-native-youtube-iframe";
 
 // export default function Excersice() {
 //   const [playing, setPlaying] = useState(false);
@@ -19,7 +34,7 @@ import { StyleSheet, Text, View } from 'react-native'
 
 //   return (
 //     <View>
-//       <YoutubePlayer
+//       <YoutubeIframe
 //         height={300}
 //         play={playing}
 //         videoId={"iee2TATGMyI"}
@@ -29,28 +44,3 @@ import { StyleSheet, Text, View } from 'react-native'
 //     </View>
 //   );
 // }
-
-import React from 'react'
-import { excersiseData } from '../utils/excersices'
-const Excersice = (props) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{excersiseData[props.route.params.id].info}</Text>
-    </View>
-  )
-}
-
-export default Excersice
-
-const styles = StyleSheet.create({
-  container:{
-    backgroundColor: "#1f1e2c",
-    display: "flex",
-    flexDirection: "column",
-    height: "100%"
-},
-text:{
-  fontSize: 50,
-  color: "white"
-}
-})

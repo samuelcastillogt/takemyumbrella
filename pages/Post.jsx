@@ -2,9 +2,9 @@ import { StyleSheet, Text, View, ActivityIndicator, Button, TouchableHighlight }
 import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { apiService } from '../service/api'
+import PostContainer from '../components/PostContainer'
 
 const Post = (props) => {
-    console.log(props)
     const [post, setPost] = useState()
     const [loading, setloading] = useState(true)
     const getDataPost = async()=>{
@@ -20,7 +20,7 @@ const Post = (props) => {
     
     <View style={styles.container}>
         {
-        loading == true ? <ActivityIndicator size="large" color="#00ff00" /> : <Text>{post.body}</Text>
+        loading == true ? <ActivityIndicator size="large" color="#00ff00" /> : <PostContainer item={post}/>
         }
       
     </View>

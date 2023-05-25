@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Image, TouchableHighlight } from 'react-native'
+import { StyleSheet, Text, View, Image, TouchableHighlight, ActivityIndicator } from 'react-native'
 import React, {useState, useEffect} from 'react'
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { apiService } from '../service/api';
@@ -41,14 +41,16 @@ const Slider = (props) => {
               onPress={back}
               style={styles.botons}
             />
-            <TouchableHighlight style={styles.card}  onPress={()=>{ props.nav.navigate('Post', {name: cards[index].id})}}>
+            {
+                loading == true ? <ActivityIndicator size={"large"} color={"green"} /> : <TouchableHighlight style={styles.card}  onPress={()=>{ props.nav.navigate('Post', {name: cards[index].id})}}>
                 <View style={styles.card}>
-                 <Text >{cards[index].data}</Text> 
-               <Image style={styles.img} source= {props.data[index].img} />   
+                 <Text style={styles.textCard}>{cards[index].data}</Text> 
+               <Image style={styles.img} source= {props.data[0].img} />   
                 </View>
-               
             </TouchableHighlight>
       
+            }
+            
       <Ionicons
               name="arrow-forward-circle-sharp"
               size={32}
@@ -99,5 +101,10 @@ const styles = StyleSheet.create({
     img:{
         width: 100,
         height: 130
+      },
+      textCard:{
+        color: "white",
+        fontSize: 15,
+        width: "60%"
       }
 })
