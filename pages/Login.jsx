@@ -1,16 +1,17 @@
-import { StyleSheet, Text, View, Button, TouchableHighlight, Alert } from 'react-native'
+import { StyleSheet, Text, View, Button, TouchableHighlight, Alert, Image } from 'react-native'
 import React from 'react'
 import { SET_SESION } from '../redux/user.slice'
 import { useDispatch, useSelector } from 'react-redux'
 import LoginForm from '../components/LoginForm'
 import SingUp from '../components/SingUp'
 import { useState } from 'react'
-
+import img from "../assets/intro.png"
 const Login = () => {
     const [login, setLogin] = useState(false)
     const [singUp, setSingUp] = useState(false)
   return (
     <View style={styles.loginContainer}>
+        <Image source={img} style={styles.img}/>
         <View style={styles.textContainer}>
             <Text style={styles.textStyles}>Iniciar Sesion</Text>  
             <Button
@@ -67,5 +68,9 @@ const styles = StyleSheet.create({
     },
     buttonText:{
         color: "white"
+    },
+    img:{
+        width: 350,
+        height: 300
     }
 })

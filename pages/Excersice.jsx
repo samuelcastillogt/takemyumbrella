@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import Diario from '../components/Diario'
+import ExpositionReto from '../components/ExpositionReto'
 const Excersice = (props) => {
   if(props.route.params.nombre == "Diario de sintomas") return <Diario />
-
+  if(props.route.params.nombre == "Vamos a exponernos") return <ExpositionReto />
 }
 
 export default Excersice

@@ -12,10 +12,10 @@ const ejercicios =[
     title: "Diario de sintomas",
     img: img2
   },
-  {
-    title: "Comprende la ansiedad",
-    img: img3
-  }
+  // {
+  //   title: "Comprende la ansiedad",
+  //   img: img3
+  // }
 ]
 const GigantCard = (props)=>{
   return (
