@@ -11,6 +11,9 @@ const LoginForm = () => {
     const [error, setError] = useState(false)
     const dispatch = useDispatch()
     const sendData = async()=>{
+        setError(false)
+        const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        if (reg.test(email) === false) setError(true);
         const mail = email.toLowerCase()
     const response =   await fetch('https://serverumbrella.vercel.app/auth/login', {
   method: 'POST',
@@ -25,7 +28,6 @@ const LoginForm = () => {
 })
 const data = await response.json()
 if(data == false){
-    console.log(data)
     setError(true)
 }else{
     dispatch(SET_USER(data))
@@ -34,7 +36,7 @@ if(data == false){
     }
     return (
     <View style={styles.container}>
-      <Text style={styles.text}>LoginForm</Text>
+      <Text style={styles.text}>Iniciar Sesion</Text>
         <TextInput placeholder={'Email'} style={styles.input} onChangeText={setEmail}/>
         <TextInput placeholder={'Contraseña'} style={styles.input} onChangeText={setPass} secureTextEntry={true}/>
         {

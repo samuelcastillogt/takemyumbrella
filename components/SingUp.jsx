@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, TextInput, Button } from "react-native";
+import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
 import React, { useState } from "react";
 
 const SingUp = (props) => {
@@ -38,6 +38,7 @@ const SingUp = (props) => {
       const data = await response.json();
       console.log(data)
       if(data != false){
+        Alert.alert("Usuario Creado, inicia sesion para ingresar al App")
         props.setSingUp(false)
         props.setLogin(true)
       }
