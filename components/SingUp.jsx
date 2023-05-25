@@ -2,14 +2,12 @@ import { StyleSheet, Text, View, TextInput, Button, Alert } from "react-native";
 import React, { useState } from "react";
 
 const SingUp = (props) => {
-    console.log(props)
   const [nombre, setNombre] = useState();
   const [pass, setPass] = useState();
   const [email, setEmail] = useState();
   const [error, setError] = useState(false);
   const singUpData = async () => {
     setError(false);
-    console.log(nombre, email, pass);
     const reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (reg.test(email) === false)
       setError("Debe ingresar un correo electronico valido");
@@ -18,7 +16,6 @@ const SingUp = (props) => {
     if (nombre.length < 4)
       setError("El Nombre de usuario debe tener 4 caracrteres como minimo");
     const mail = email.toLowerCase();
-    console.log(error);
     if (error == false) {
       const response = await fetch(
         "https://serverumbrella.vercel.app/auth/singup",
@@ -36,7 +33,6 @@ const SingUp = (props) => {
         }
       );
       const data = await response.json();
-      console.log(data)
       if(data != false){
         Alert.alert("Usuario Creado, inicia sesion para ingresar al App")
         props.setSingUp(false)

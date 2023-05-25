@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View, Button, TouchableHighlight, Alert } from 'react-native'
-// import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin';
 import React from 'react'
 import { SET_SESION } from '../redux/user.slice'
 import { useDispatch, useSelector } from 'react-redux'

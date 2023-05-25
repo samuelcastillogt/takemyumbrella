@@ -23,7 +23,7 @@ const GigantCard = (props)=>{
       {
         ejercicios.map((item, index)=>
           <TouchableHighlight style={index %2 == 0 ? styles.card : styles.card2} onPress={()=>{
-        props.nav.navigate('Excersice', {id: index})
+        props.nav.navigate('Excersice', {id: index, nombre: item.title})
         }}
         key={index}
         >

@@ -1,14 +1,14 @@
 import { StyleSheet, Text, View, CheckBox } from 'react-native'
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { AppOpenAd, TestIds, AdEventType } from 'react-native-google-mobile-ads';
+// import { AppOpenAd, TestIds, AdEventType } from 'react-native-google-mobile-ads';
 import { Ionicons } from '@expo/vector-icons';
 
-const adUnitId = __DEV__ ? TestIds.APP_OPEN : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
-const appOpenAd = AppOpenAd.createForAdRequest(adUnitId, {
-  requestNonPersonalizedAdsOnly: true,
-  keywords: ['fashion', 'clothing'],
-});
+// const adUnitId = __DEV__ ? TestIds.APP_OPEN : 'ca-app-pub-xxxxxxxxxxxxx/yyyyyyyyyyyyyy';
+// const appOpenAd = AppOpenAd.createForAdRequest(adUnitId, {
+//   requestNonPersonalizedAdsOnly: true,
+//   keywords: ['fashion', 'clothing'],
+// });
 const Setings = () => {
   const user = useSelector((state)=> state.user.user)
   useEffect(()=>{

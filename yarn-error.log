@@ -31,7 +31,6 @@ npm manifest:
       "@expo/config-plugins": "^4.1.5",
       "@expo/webpack-config": "^18.0.1",
       "@react-native-firebase/app": "^17.5.0",
-      "@react-native-google-signin/google-signin": "7.2.2",
       "@react-navigation/bottom-tabs": "^6.5.7",
       "@react-navigation/native": "^6.1.6",
       "@react-navigation/native-stack": "^6.9.12",

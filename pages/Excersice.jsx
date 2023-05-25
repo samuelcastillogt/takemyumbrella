@@ -1,17 +1,26 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-const Excersice = () => {
-  return (
-    <View>
-      <Text>Excersice</Text>
+import Diario from '../components/Diario'
+const Excersice = (props) => {
+  if(props.route.params.nombre == "Diario de sintomas") return <Diario />
 
-    </View>
-  )
 }
 
 export default Excersice
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+  container:{
+    backgroundColor: "#1f1e2c",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    height: "100%"
+},
+text:{
+  color: "white"
+}
+})
 
 
 // import React, { useState, useCallback, useRef } from "react";
